@@ -98,6 +98,7 @@ $(document).ready(function(){
         }
     ];
 
+    // assegno la proprietà color appropriata al tipo di oggetto
     const blu = '#0000ff';
     const arancione = '#ffa500';
     const viola = '#800080';
@@ -112,6 +113,7 @@ $(document).ready(function(){
     // console.log(colori);
 
 
+    // creo all'interno di icons nell'html le varie icon colorate nel modo giusto
     colori.forEach((element) => {
         const {name,prefix,family,color} = element;
         $('.icons').append(`
@@ -123,12 +125,13 @@ $(document).ready(function(){
     });
 
 
+    // vedo a schermo solo le icon selezionate in base alla select
     const select = $('#type');
     select.change(function() {
         const valore = $(this).val();
         // console.log(valore);
 
-        const filtrati = colori.filter((element) => element.type == valore ? element : colori);
+        const filtrati = colori.filter((element) => element.type == valore);
         console.log(filtrati);
     });
 
