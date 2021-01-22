@@ -1,7 +1,9 @@
 // *****funzioni
 function stampaIcone(arr) {
     $('.icons').empty();
+
     arr.forEach((element) => {
+
         const {name,prefix,family,color} = element;
         $('.icons').append(`
             <div class="icon">
@@ -9,7 +11,8 @@ function stampaIcone(arr) {
                 <div class="nome">${name}</div>
             </div>
         `);
-    })
+
+    });
 }
 
 function filterIcon(tipo,array){
@@ -22,10 +25,12 @@ function filterIcon(tipo,array){
 
 function stampaOpzioni(arr) {
     arr.forEach((element) => {
+
         $('#type').append(`
             <option value="${element}">${element}</option>
         `);
-    })
+
+    });
 }
 // ******/funzioni
 
@@ -129,24 +134,28 @@ $(document).ready(function(){
         }
     ];
 
-    // assegno la proprietà color appropriata al tipo di oggetto
+    // assegno la proprietà color appropriata al tipo di oggetto e popolo la select
     const blu = '#0000ff';
     const arancione = '#ffa500';
     const viola = '#800080';
     const tipiIcone = [];
+
+
     const colori = icons.map((element) => {
+
         const {type} = element;
         if ( !tipiIcone.includes(type) ){
             tipiIcone.push(type);
         }
+
         console.log(tipiIcone);
         return {
             ...element,
             color: type == 'animal' ? blu :
             type == 'user' ? arancione : viola
-        }
+        };
+
     });
-    // console.log(colori);
     
     // stampo nella select
     stampaOpzioni(tipiIcone);
@@ -158,11 +167,11 @@ $(document).ready(function(){
     // vedo a schermo solo le icon selezionate in base alla select
     const select = $('#type');
     select.change(function() {
+
         const valore = $(this).val();
-        // console.log(valore);
         const elementiFiltrati = filterIcon(valore,colori);
         stampaIcone(elementiFiltrati);
-        // console.log(elementiFiltrati);
+
     });
 
 });
