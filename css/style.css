@@ -6,12 +6,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #eeeeee;
 }
 
 .container{
     width: 100%;
     height: 100vh;
-    background-color: #eeeeee;
 }
 
 .container header{
@@ -23,12 +23,16 @@ body {
 }
 
 .container .filtri{
+    width: 100%;
     height: 80px;
     background-color: rgb(54, 54, 240);
     color: white;
     text-align: center;
     font-size: 1.8rem;
     line-height: 80px;
+    /* position: fixed;
+    left: 0;
+    top: 0; */
 }
 
 .container .filtri select{
@@ -54,4 +58,20 @@ body {
 
 .container .icons .icon i {
     font-size: 2rem;
+}
+
+
+@media screen and (max-width: 992px){
+    .container .icons .icon{
+        width: calc(100% / 4 - 10px);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .container .icons{
+        justify-content: space-around;
+    }
+    .container .icons .icon{
+        width: calc(100% / 3 - 10px);
+    }
 }
