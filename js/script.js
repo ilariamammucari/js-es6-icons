@@ -110,14 +110,26 @@ $(document).ready(function(){
         }
     });
     // console.log(colori);
+
+
     colori.forEach((element) => {
-        const {name,prefix,type,family,color} = element;
+        const {name,prefix,family,color} = element;
         $('.icons').append(`
             <div class="icon">
                 <i class="${family} ${prefix}${name}" style="color:${color}"></i>
                 <div class="nome">${name}</div>
             </div>
         `);
+    });
+
+
+    const select = $('#type');
+    select.change(function() {
+        const valore = $(this).val();
+        // console.log(valore);
+
+        const filtrati = colori.filter((element) => element.type == valore ? element : colori);
+        console.log(filtrati);
     });
 
 });
